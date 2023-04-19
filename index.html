@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de botões com JavaScript</title>
+  <!-- Adicionando Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Adicionando estilo customizado -->
+  <style>
+    /* Esconder o botão até que ele apareça após 5 segundos */
+    #botao-escondido {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="buttons" class="container mt-5">
+    <h1 id="titulo">Título da Página</h1>
+    <button id="botao-escondido" class="btn btn-primary">Botão Escondido</button>
+    <button id="botao-alerta" class="btn btn-danger">Botão de Alerta</button>
+    <button id="botao-titulo" class="btn btn-success">Botão de Título</button>
+    <button id="botao-paragrafo" class="btn btn-warning">Botão de Parágrafo</button>
+  </div>
+
+  <!-- Adicionando scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+     $(document).ready(function() {
+      setTimeout(function() {
+        var botao = $('<button>').attr({
+          id: 'botao',
+          class: 'btn btn-primary'
+        }).text('Botão novo').click(function() {
+          alert('Botão clicado!');
+        });
+        $('#buttons').append(botao);
+        $('#botao-novo').fadeIn();
+      }, 5000);
+    });
+
+    function mostrarBotao() {
+      $('#botao-escondido').show().click(function () {
+        alert('Você clicou no botão escondido!');
+      });
+    }
+
+    function exibirAlerta() {
+      setTimeout(function () {
+        alert('Você clicou no botão de alerta após 3 segundos!');
+      }, 3000);
+    }
+
+    function mudarTitulo() {
+      setTimeout(function () {
+        $('#titulo').text('Novo Título da Página');
+      }, 3000);
+    }
+
+    function adicionarParagrafo() {
+      setTimeout(function () {
+        $('<p>').text('Este é um novo parágrafo adicionado após 3 segundos.').appendTo('body');
+      }, 3000);
+    }
+
+    $('#botao-escondido').click(mostrarBotao);
+
+    $('#botao-alerta').click(exibirAlerta);
+
+    $('#botao-titulo').click(mudarTitulo);
+
+    $('#botao-paragrafo').click(adicionarParagrafo);
+
+    setTimeout(mostrarBotao, 3000);
+  </script>
+</body>
+
+</html>
