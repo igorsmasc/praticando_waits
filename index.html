@@ -31,7 +31,7 @@
      $(document).ready(function() {
       setTimeout(function() {
         var botao = $('<button>').attr({
-          id: 'botao',
+          id: 'botao-novo',
           class: 'btn btn-primary'
         }).text('Botão novo').click(function() {
           alert('Botão clicado!');
@@ -49,7 +49,7 @@
 
     function exibirAlerta() {
       setTimeout(function () {
-        alert('Você clicou no botão de alerta após 3 segundos!');
+        alert('Alerta após 3 segundos!');
       }, 3000);
     }
 
